@@ -1,0 +1,13 @@
+package(default_visibility = ["//visibility:public"])
+
+alias(
+    name = "blink",
+    actual = "blink.elf",
+)
+
+# TODO: Configure toolchain so it produces binaries with .elf extensions.
+cc_binary(
+    name = "blink.elf",
+    srcs = ["blink.c"],
+    deps = ["@pico-sdk//src/common/pico_stdlib:pico_stdlib"],
+)

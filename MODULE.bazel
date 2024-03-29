@@ -1,0 +1,16 @@
+module(name = "pico-examples", version = "0.0.1")
+
+# Note: rules_cc is special-cased repository; a dependency on rules_cc in a
+# module will not ensure that the root Bazel module has that same version of
+# rules_cc. For that reason, this primarily acts as a FYI. You'll still need
+# to explicitly list this dependency in your own project's MODULE.bazel file.
+bazel_dep(name = "rules_cc", version = "0.0.9")
+
+bazel_dep(name = "pico-sdk", version = "0.0.1")
+
+register_toolchains(
+    "@pico-sdk//bazel/toolchain:arm_gcc_linux-x86_64",
+    "@pico-sdk//bazel/toolchain:arm_gcc_win-x86_64",
+    "@pico-sdk//bazel/toolchain:arm_gcc_mac-x86_64",
+    "@pico-sdk//bazel/toolchain:arm_gcc_mac-aarch64",
+)

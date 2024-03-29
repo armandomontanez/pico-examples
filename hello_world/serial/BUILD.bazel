@@ -1,0 +1,13 @@
+package(default_visibility = ["//visibility:public"])
+
+alias(
+    name = "hello_serial",
+    actual = "hello_serial.elf",
+)
+
+# TODO: Configure toolchain so it produces binaries with .elf extensions.
+cc_binary(
+    name = "hello_serial.elf",
+    srcs = ["hello_serial.c"],
+    deps = ["@pico-sdk//src/common/pico_stdlib:pico_stdlib"],
+)
