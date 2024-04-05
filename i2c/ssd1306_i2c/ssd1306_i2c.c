@@ -284,7 +284,7 @@ static uint8_t reverse(uint8_t b) {
 }
 static void FillReversedCache() {
     // calculate and cache a reversed version of fhe font, because I defined it upside down...doh!
-    for (int i=0;i<sizeof(font);i++)
+    for (size_t i=0;i<sizeof(font);i++)
         reversed[i] = reverse(font[i]);
 }
 
@@ -406,7 +406,7 @@ restart:
     };
 
     int y = 0;
-    for (int i = 0 ;i < count_of(text); i++) {
+    for (size_t i = 0 ;i < count_of(text); i++) {
         WriteString(buf, 5, y, text[i]);
         y+=8;
     }

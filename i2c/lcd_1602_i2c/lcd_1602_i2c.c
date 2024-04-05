@@ -107,7 +107,7 @@ void lcd_set_cursor(int line, int position) {
     lcd_send_byte(val, LCD_COMMAND);
 }
 
-static void inline lcd_char(char val) {
+inline static void lcd_char(char val) {
     lcd_send_byte(val, LCD_CHARACTER);
 }
 
@@ -154,8 +154,8 @@ int main() {
             };
 
     while (1) {
-        for (int m = 0; m < sizeof(message) / sizeof(message[0]); m += MAX_LINES) {
-            for (int line = 0; line < MAX_LINES; line++) {
+        for (size_t m = 0; m < sizeof(message) / sizeof(message[0]); m += MAX_LINES) {
+            for (size_t line = 0; line < MAX_LINES; line++) {
                 lcd_set_cursor(line, (MAX_CHARS / 2) - strlen(message[m + line]) / 2);
                 lcd_string(message[m + line]);
             }

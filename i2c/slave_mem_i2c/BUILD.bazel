@@ -1,0 +1,11 @@
+package(default_visibility = ["//visibility:public"])
+
+cc_binary(
+    name = "slave_mem_i2c",
+    srcs = ["slave_mem_i2c.c"],
+    deps = [
+        "@pico-sdk//src/common/pico_stdlib",
+        "@pico-sdk//src/rp2_common/hardware_i2c",
+        "@pico-sdk//src/rp2_common/pico_i2c_slave",
+    ],
+)

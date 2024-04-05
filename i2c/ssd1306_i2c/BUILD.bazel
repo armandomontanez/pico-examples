@@ -1,0 +1,14 @@
+package(default_visibility = ["//visibility:public"])
+
+cc_binary(
+    name = "ssd1306_i2c",
+    srcs = [
+        "raspberry26x32.h",
+        "ssd1306_font.h",
+        "ssd1306_i2c.c",
+    ],
+    deps = [
+        "@pico-sdk//src/common/pico_stdlib",
+        "@pico-sdk//src/rp2_common/hardware_i2c",
+    ],
+)

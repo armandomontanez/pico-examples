@@ -175,10 +175,10 @@ again:
     ht16k33_scroll_string("Welcome to the Raspberry Pi Pico", 150);
 
     // Do a speeding up propeller effort using the inner segments
-    int bits[] = {0x40, 0x0100, 0x0200, 0x0400, 0x80, 0x2000, 0x1000, 0x0800};
-    for (int j = 0;j < 10;j++) {
-        for (int i = 0;i< count_of(bits); i++) {
-            for (int digit = 0;digit <= NUM_DIGITS; digit++) {
+    size_t bits[] = {0x40, 0x0100, 0x0200, 0x0400, 0x80, 0x2000, 0x1000, 0x0800};
+    for (size_t j = 0;j < 10;j++) {
+        for (size_t i = 0;i< count_of(bits); i++) {
+            for (size_t digit = 0;digit <= NUM_DIGITS; digit++) {
                 ht16k33_display_set(digit, bits[i]);
             }
             sleep_ms(155 - j*15);
@@ -189,7 +189,7 @@ again:
         "Help", "I am", "in a", "Pico", "and ", "Cant", "get ", "out "
     };
 
-    for (int i = 0; i < count_of(strs); i++) {
+    for (size_t i = 0; i < count_of(strs); i++) {
         ht16k33_display_string(strs[i]);
         sleep_ms(500);
     }

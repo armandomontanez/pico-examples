@@ -1,0 +1,10 @@
+package(default_visibility = ["//visibility:public"])
+
+cc_binary(
+    name = "lis3dh_i2c",
+    srcs = ["lis3dh_i2c.c"],
+    deps = [
+        "@pico-sdk//src/common/pico_stdlib",
+        "@pico-sdk//src/rp2_common/hardware_i2c",
+    ],
+)
